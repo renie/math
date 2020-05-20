@@ -2,13 +2,14 @@
 
 ## Usage
 
-### Add
+### Basic
+#### add()
 
 ##### Receives
 ```
 add(x, y)
 ```
-Where x and y are numbers
+Where **x** and **y** are numbers
 
 ##### Returns
 A number corresponding to the answer
@@ -21,6 +22,94 @@ add(1,2)
 ```
 add(8,-2)
 // 6
+```
+
+### Utils
+#### bulkFunction()
+
+##### Receives
+```
+bulkFunction(list, fn, initialValue)
+```
+Where **list** is an array, **fn** a function, and **initialValue** a mixed type
+
+##### Returns
+Return the result of a reduce method applied to your *list* with your *function*. Using *initialValue* to begin reducing.
+
+##### Examples
+```
+bulkFunction([1,2], (acc, item) => acc + item, 0)
+// 3
+```
+
+#### getRandomPositiveNumber()
+```
+getRandomPositiveNumber(limit)
+```
+Where **limit** is an integer. *Default value for limit is 10*.
+
+##### Returns
+Return a random number with max value set as parameter.
+
+##### Examples
+```
+getRandomPositiveNumber()
+```
+
+#### getRandomNegativeNumber()
+```
+getRandomNegativeNumber(limit)
+```
+Where **limit** is an integer. *Default value for limit is -10*.
+
+##### Returns
+Return a random number with max value set as parameter.
+
+##### Examples
+```
+getRandomNegativeNumber()
+```
+
+#### getRandomPositiveArray()
+```
+getRandomPositiveArray(limit, size)
+```
+Where **limit** and **size** are integers. *Default value for limit is 10, and for size is 4*.
+
+##### Returns
+Return an array, with required **size**, where every content item is a positive number lower than **limit**.
+
+##### Examples
+```
+getRandomPositiveArray()
+```
+
+#### getRandomNegativeArray()
+```
+getRandomNegativeArray(limit, size)
+```
+Where **limit** and **size** are integers. *Default value for limit is -10, and for size is 4*.
+
+##### Returns
+Return an array, with required **size**, where every content item is a negative number lower than **limit**.
+
+##### Examples
+```
+getRandomNegativeArray()
+```
+
+#### getRandomMixedArray()
+```
+getRandomMixedArray(limit, size)
+```
+Where **limit** and **size** are integers. *Default value for limit is -10/10, and for size is 4*.
+
+##### Returns
+Return an array, with required **size**, where every content item is an any signal number lower than **limit**.
+
+##### Examples
+```
+getRandomMixedArray()
 ```
 
 

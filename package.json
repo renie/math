@@ -7,12 +7,14 @@
   "scripts": {
     "test": "mocha --esm",
     "coverage": "c8 --reporter lcovonly npm test",
+    "coverage-html": "c8 --reporter html npm test",
     "coveralls": "npm run coverage && cat coverage/lcov.info | coveralls"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "c8": "^7.1.2",
+    "chai": "^4.2.0",
     "coveralls": "^3.1.0",
     "esm": "^3.2.25",
     "mocha": "^7.1.2"
