@@ -12,9 +12,9 @@ import {
     sub,
     diff,
     multiply,
-    product } from '../lib/basic.js'
-
-
+    product,
+    divide,
+    quotient } from '../lib/basic.js'
 
 describe('Basic', function() {
 
@@ -230,11 +230,18 @@ describe('Basic', function() {
             assert.equal(multiply(multiplicand, multiplier), multiply(multiplier, multiplicand))
         })
 
-        it('Subtractive Identity property: ', function() {
+        it('Multiplication Identity property: ', function() {
             const multiplicand = getRandomPositiveNumber(100)
 
             this.test.title += `(multiplicand) => (${multiplicand})`
             assert.equal(multiply(multiplicand, 1), multiplicand)
+        })
+
+        it('Multiplication Identity property 2: ', function() {
+            const multiplicand = getRandomPositiveNumber(100)
+
+            this.test.title += `(multiplicand) => (${multiplicand})`
+            assert.equal(multiply(multiplicand, 0), 0)
         })
 
         it('Distributive property: ', function() {
@@ -281,6 +288,122 @@ describe('Basic', function() {
             this.test.title = this.test.title.replace('x', size)
             this.test.title += `(parts) => (${parts})`
             assert.equal(product(...parts), result)
+        })
+
+    })
+
+    describe('divide()', function() {
+
+        it('Simple result with positive numbers: ', function() {
+            const dividend = getRandomPositiveNumber(100)
+            const divisor = getRandomPositiveNumber(100)
+
+            this.test.title += (`(dividend, divisor) => (${dividend}, ${divisor})`)
+            assert.equal(divide(dividend, divisor), dividend/divisor)
+        })
+
+        it('Simple result with negative numbers: ', function() {
+            const dividend = getRandomNegativeNumber(100)
+            const divisor = getRandomNegativeNumber(100)
+
+            this.test.title += (`(dividend, divisor) => (${dividend}, ${divisor})`)
+            assert.equal(divide(dividend, divisor), dividend/divisor)
+        })
+
+        it('Simple result with mixed signal numbers: ', function() {
+            const dividend = getRandomPositiveNumber(100)
+            const divisor = getRandomNegativeNumber(100)
+
+            this.test.title += (`(dividend, divisor) => (${dividend}, ${divisor})`)
+            assert.equal(divide(dividend, divisor), dividend/divisor)
+        })
+
+        it('Commutative property: ', function() {
+            const dividend = getRandomPositiveNumber(100)
+            const divisor = getRandomPositiveNumber(100)
+
+            this.test.title += (`(dividend, divisor) => (${dividend}, ${divisor})`)
+            assert.notEqual(divide(dividend, divisor), divide(divisor, dividend))
+        })
+
+        it('Identity property of division: ', function() {
+            const dividend = getRandomPositiveNumber(100)
+
+            this.test.title += `(dividend) => (${dividend})`
+            assert.equal(divide(dividend, 1), dividend)
+        })
+
+        it('Identity property of division 2: ', function() {
+            const dividend = getRandomPositiveNumber(100)
+
+            this.test.title += `(dividend) => (${dividend})`
+            assert.equal(divide(dividend, dividend), 1)
+        })
+
+        it('Identity property of division 3: ', function() {
+            const dividend = getRandomPositiveNumber(100)
+
+            this.test.title += `(dividend) => (${dividend})`
+            assert.deepStrictEqual(divide(dividend, 0), Infinity)
+        })
+
+        it('Identity property of division 4: ', function() {
+            const dividend = getRandomPositiveNumber(100)
+
+            this.test.title += `(dividend) => (${dividend})`
+            assert.equal(divide(0, dividend), 0)
+        })
+
+        /**
+        * The division may have problems with floating point at comparison time
+        * this is why I used toFixed() to compare.
+        * Parameters that we already know can cause a problem:
+        *  - (21, 90, 71)
+        */
+        it('Distributive property: ', function() {
+            const divisor = getRandomPositiveNumber(100)
+            const part1 = getRandomPositiveNumber(100)
+            const part2 = getRandomPositiveNumber(100)
+
+            const result1 = divide((part1 + part2), divisor)
+            const result2 = divide(part1, divisor) + divide(part2, divisor)
+
+            this.test.title += `(part1, part2, divisor) => (${part1}, ${part2}, ${divisor})`
+            assert.equal(result1.toFixed(14), result2.toFixed(14))
+        })
+
+    })
+
+    describe('quotient()', function() {
+
+        it('Simple result with x positive numbers', function() {
+            const size = getRandomPositiveNumber(20)
+            const parts = getRandomPositiveArray(100, size)
+            const result = parts.reduce((acc, number) => acc / number, (parts[0]*parts[0]))
+
+            this.test.title = this.test.title.replace('x', size)
+            this.test.title += `(parts) => (${parts})`
+            assert.equal(quotient(...parts), result)
+        })
+
+        it('Simple result with x negative numbers', function() {
+            const size = getRandomPositiveNumber(20)
+            const parts = getRandomNegativeArray(100, size)
+            const result = parts.reduce((acc, number) => acc / number, (parts[0]*parts[0]))
+
+            this.test.title = this.test.title.replace('x', size)
+            this.test.title += `(parts) => (${parts})`
+            assert.equal(quotient(...parts), result)
+        })
+
+        it('Simple result with x mixed signal numbers', function() {
+            const size = getRandomPositiveNumber(20)
+            const parts = getRandomMixedArray(100, size)
+            const result = parts.reduce((acc, number) => acc / number, (parts[0]*parts[0]))
+
+            this.test.title = this.test.title.replace('x', size)
+            this.test.title += `(parts) => (${parts})`
+            assert.equal(quotient(...parts), result)
         })
 
     })

@@ -108,11 +108,11 @@ multiply(2,-2)
 // 4
 ```
 
-#### multiply()
+#### product()
 
 ##### Receives
 ```
-multiply(...parts)
+product(...parts)
 ```
 Where **parts** is a numeric array of any size
 
@@ -121,12 +121,54 @@ A number corresponding to the multiplication of all parts
 
 ##### Examples
 ```
-multiply(1,2,3,4)
+product(1,2,3,4)
 // 24
 ```
 ```
-multiply(1, -8, 10, 15, -17)
+product(1, -8, 10, 15, -17)
 // 20400
+```
+
+#### divide()
+
+##### Receives
+```
+divide(x, y)
+```
+Where **x** and **y** are numbers
+
+##### Returns
+A number corresponding to the answer
+
+##### Examples
+```
+divide(4,2)
+// 2
+```
+```
+divide(15,3)
+// 5
+```
+
+#### quotient()
+
+##### Receives
+```
+quotient(...parts)
+```
+Where **parts** is a numeric array of any size
+
+##### Returns
+A number corresponding to the division of all parts, from left to right
+
+##### Examples
+```
+quotient(1,2,3,4)
+// 0,041666667
+```
+```
+quotient(1, -8, 10, 15, -17)
+// 0,00004902
 ```
 
 ### Utils
