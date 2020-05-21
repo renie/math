@@ -1,11 +1,11 @@
 {
-  "name": "math",
+  "name": "math-functional",
   "version": "1.0.0",
   "description": "Just a project to abstract math functions from basic to I-don't-know-where.",
-  "main": "index.js",
-  "module": "main.js",
+  "main": "dist/main.cjs",
   "type": "module",
   "scripts": {
+    "build": "parcel build main.js --out-file main.cjs",
     "test": "mocha --esm",
     "coverage": "c8 --reporter lcovonly npm test",
     "coverage-html": "c8 --reporter html npm test",
@@ -18,14 +18,15 @@
     "chai": "^4.2.0",
     "coveralls": "^3.1.0",
     "esm": "^3.2.25",
-    "mocha": "^7.1.2"
+    "mocha": "^7.1.2",
+    "parcel-bundler": "^1.12.4"
   },
   "dependencies": {},
   "engines": {
     "node": ">=13.7.0"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/npm/cli.git"
+    "type": "git",
+    "url": "https://github.com/npm/cli.git"
   }
 }
