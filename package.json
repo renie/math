@@ -1,6 +1,6 @@
 {
   "name": "math-functional",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Just a project to abstract math functions from basic to I-don't-know-where.",
   "main": "dist/main.cjs",
   "type": "module",
