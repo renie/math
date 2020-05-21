@@ -10,7 +10,9 @@ import {
     add,
     sum,
     sub,
-    diff } from '../lib/basic.js'
+    diff,
+    multiply,
+    product } from '../lib/basic.js'
 
 
 
@@ -190,6 +192,95 @@ describe('Basic', function() {
             this.test.title = this.test.title.replace('x', size)
             this.test.title += `(parts) => (${parts})`
             assert.equal(diff(...parts), result)
+        })
+
+    })
+
+    describe('multiply()', function() {
+
+        it('Simple result with positive numbers: ', function() {
+            const multiplicand = getRandomPositiveNumber(100)
+            const multiplier = getRandomPositiveNumber(100)
+
+            this.test.title += (`(multiplicand, multiplier) => (${multiplicand}, ${multiplier})`)
+            assert.equal(multiply(multiplicand, multiplier), multiplicand*multiplier)
+        })
+
+        it('Simple result with negative numbers: ', function() {
+            const multiplicand = getRandomNegativeNumber(100)
+            const multiplier = getRandomNegativeNumber(100)
+
+            this.test.title += (`(multiplicand, multiplier) => (${multiplicand}, ${multiplier})`)
+            assert.equal(multiply(multiplicand, multiplier), multiplicand*multiplier)
+        })
+
+        it('Simple result with mixed signal numbers: ', function() {
+            const multiplicand = getRandomPositiveNumber(100)
+            const multiplier = getRandomNegativeNumber(100)
+
+            this.test.title += (`(multiplicand, multiplier) => (${multiplicand}, ${multiplier})`)
+            assert.equal(multiply(multiplicand, multiplier), multiplicand*multiplier)
+        })
+
+        it('Commutative property: ', function() {
+            const multiplicand = getRandomPositiveNumber(100)
+            const multiplier = getRandomPositiveNumber(100)
+
+            this.test.title += (`(multiplicand, multiplier) => (${multiplicand}, ${multiplier})`)
+            assert.equal(multiply(multiplicand, multiplier), multiply(multiplier, multiplicand))
+        })
+
+        it('Subtractive Identity property: ', function() {
+            const multiplicand = getRandomPositiveNumber(100)
+
+            this.test.title += `(multiplicand) => (${multiplicand})`
+            assert.equal(multiply(multiplicand, 1), multiplicand)
+        })
+
+        it('Distributive property: ', function() {
+            const multiplier = getRandomPositiveNumber(100)
+            const part1 = getRandomPositiveNumber(100)
+            const part2 = getRandomPositiveNumber(100)
+
+            const result1 = multiply((part1 + part2), multiplier)
+            const result2 = multiply(part1, multiplier) + multiply(part2, multiplier)
+
+            this.test.title += `(part1, part2, multiplier) => (${part1}, ${part2}, ${multiplier})`
+            assert.equal(result1, result2)
+        })
+
+    })
+
+    describe('product()', function() {
+
+        it('Simple result with x positive numbers', function() {
+            const size = getRandomPositiveNumber(20)
+            const parts = getRandomPositiveArray(100, size)
+            const result = parts.reduce((acc, number) => acc * number, 1)
+
+            this.test.title = this.test.title.replace('x', size)
+            this.test.title += `(parts) => (${parts})`
+            assert.equal(product(...parts), result)
+        })
+
+        it('Simple result with x negative numbers', function() {
+            const size = getRandomPositiveNumber(20)
+            const parts = getRandomNegativeArray(100, size)
+            const result = parts.reduce((acc, number) => acc * number, 1)
+
+            this.test.title = this.test.title.replace('x', size)
+            this.test.title += `(parts) => (${parts})`
+            assert.equal(product(...parts), result)
+        })
+
+        it('Simple result with x mixed signal numbers', function() {
+            const size = getRandomPositiveNumber(20)
+            const parts = getRandomMixedArray(100, size)
+            const result = parts.reduce((acc, number) => acc * number, 1)
+
+            this.test.title = this.test.title.replace('x', size)
+            this.test.title += `(parts) => (${parts})`
+            assert.equal(product(...parts), result)
         })
 
     })
