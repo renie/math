@@ -83,8 +83,8 @@ describe('Utils', function() {
 
         it('Generate an array with random mixed signal number', function() {
             const list = getRandomMixedArray()
-            assert.isOk(list.some(item => item > 0), "no positive")
-            assert.isOk(list.some(item => item < 0), "no negative")
+            assert.isOk(list.some(item => item > 0), `no positive in ${list}`)
+            assert.isOk(list.some(item => item < 0), `no negative ${list}`)
         })
 
     })

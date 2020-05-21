@@ -8,7 +8,9 @@ import {
     getRandomMixedArray } from './utils.js'
 import {
     add,
-    sum } from '../lib/basic.js'
+    sum,
+    sub,
+    diff } from '../lib/basic.js'
 
 
 
@@ -45,7 +47,7 @@ describe('Basic', function() {
             const addend2 = getRandomPositiveNumber(100)
 
             this.test.title += (`(addend1, addend2) => (${addend1}, ${addend2})`)
-            assert.equal(add(addend1, addend2), add(addend1, addend2))
+            assert.equal(add(addend1, addend2), add(addend2, addend1))
         })
 
         it('Additive Identity property: ', function() {
@@ -99,6 +101,95 @@ describe('Basic', function() {
             this.test.title = this.test.title.replace('x', size)
             this.test.title += `(addends) => (${addends})`
             assert.equal(sum(...addends), result)
+        })
+
+    })
+
+    describe('sub()', function() {
+
+        it('Simple result with positive numbers: ', function() {
+            const minuend = getRandomPositiveNumber(100)
+            const subtrahend = getRandomPositiveNumber(100)
+
+            this.test.title += (`(minuend, subtrahend) => (${minuend}, ${subtrahend})`)
+            assert.equal(sub(minuend, subtrahend), minuend-subtrahend)
+        })
+
+        it('Simple result with negative numbers: ', function() {
+            const minuend = getRandomNegativeNumber(100)
+            const subtrahend = getRandomNegativeNumber(100)
+
+            this.test.title += (`(minuend, subtrahend) => (${minuend}, ${subtrahend})`)
+            assert.equal(sub(minuend, subtrahend), minuend-subtrahend)
+        })
+
+        it('Simple result with mixed signal numbers: ', function() {
+            const minuend = getRandomPositiveNumber(100)
+            const subtrahend = getRandomNegativeNumber(100)
+
+            this.test.title += (`(minuend, subtrahend) => (${minuend}, ${subtrahend})`)
+            assert.equal(sub(minuend, subtrahend), minuend-subtrahend)
+        })
+
+        it('Commutative property: ', function() {
+            const minuend = getRandomPositiveNumber(100)
+            const subtrahend = getRandomPositiveNumber(100)
+
+            this.test.title += (`(minuend, subtrahend) => (${minuend}, ${subtrahend})`)
+            assert.notEqual(sub(minuend, subtrahend), sub(subtrahend, minuend))
+        })
+
+        it('Subtractive Identity property: ', function() {
+            const minuend = getRandomPositiveNumber(100)
+
+            this.test.title += `(minuend) => (${minuend})`
+            assert.equal(sub(minuend, 0), minuend)
+        })
+
+        it('Distributive property: ', function() {
+            const multiplier = getRandomPositiveNumber(100)
+            const minuend = getRandomPositiveNumber(100)
+            const subtrahend = getRandomPositiveNumber(100)
+
+            const result1 = sub(minuend, subtrahend) * multiplier
+            const result2 = sub((minuend * multiplier), (subtrahend * multiplier))
+
+            this.test.title += `(multiplier, minuend, subtrahend) => (${multiplier}, ${minuend}, ${subtrahend})`
+            assert.equal(result1, result2)
+        })
+
+    })
+
+    describe('difference()', function() {
+
+        it('Simple result with x positive numbers', function() {
+            const size = getRandomPositiveNumber(20)
+            const parts = getRandomPositiveArray(100, size)
+            const result = parts.reduce((acc, number) => acc - number, 0)
+
+            this.test.title = this.test.title.replace('x', size)
+            this.test.title += `(parts) => (${parts})`
+            assert.equal(diff(...parts), result)
+        })
+
+        it('Simple result with x negative numbers', function() {
+            const size = getRandomPositiveNumber(20)
+            const parts = getRandomNegativeArray(100, size)
+            const result = parts.reduce((acc, number) => acc - number, 0)
+
+            this.test.title = this.test.title.replace('x', size)
+            this.test.title += `(parts) => (${parts})`
+            assert.equal(diff(...parts), result)
+        })
+
+        it('Simple result with x mixed signal numbers', function() {
+            const size = getRandomPositiveNumber(20)
+            const parts = getRandomMixedArray(100, size)
+            const result = parts.reduce((acc, number) => acc - number, 0)
+
+            this.test.title = this.test.title.replace('x', size)
+            this.test.title += `(parts) => (${parts})`
+            assert.equal(diff(...parts), result)
         })
 
     })

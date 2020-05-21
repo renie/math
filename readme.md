@@ -24,6 +24,70 @@ add(8,-2)
 // 6
 ```
 
+#### sum()
+
+##### Receives
+```
+sum(...addends)
+```
+Where **addends** is a numeric array of any size
+
+##### Returns
+A number corresponding to the sum of all addends
+
+##### Examples
+```
+sum(1,2,3,4)
+// 10
+```
+```
+sum(1, -8, 10, 15, -17)
+// 1
+```
+
+#### sub()
+
+##### Receives
+```
+sub(x, y)
+```
+Where **x** and **y** are numbers
+
+##### Returns
+A number corresponding to the answer
+
+##### Examples
+```
+sub(1,2)
+// -1
+```
+```
+sub(-8,-2)
+// -6
+```
+
+#### diff()
+
+##### Receives
+```
+diff(...parts)
+```
+Where **parts** is a numeric array of any size
+
+##### Returns
+A number corresponding to the difference of all parts, from left to right
+
+##### Examples
+```
+diff(1,2,3,4)
+// -8
+```
+```
+diff(1, -8, 10, 15, -17)
+// 1
+```
+
+
 ### Utils
 #### bulkFunction()
 
