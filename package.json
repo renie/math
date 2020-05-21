@@ -1,8 +1,9 @@
 {
   "name": "math",
   "version": "1.0.0",
-  "description": "",
+  "description": "Just a project to abstract math functions from basic to I-don't-know-where.",
   "main": "index.js",
+  "module": "main.js",
   "type": "module",
   "scripts": {
     "test": "mocha --esm",
@@ -10,7 +11,7 @@
     "coverage-html": "c8 --reporter html npm test",
     "coveralls": "npm run coverage && cat coverage/lcov.info | coveralls"
   },
-  "author": "",
+  "author": "Renie Siqueira",
   "license": "MIT",
   "devDependencies": {
     "c8": "^7.1.2",
@@ -22,5 +23,9 @@
   "dependencies": {},
   "engines": {
     "node": ">=13.7.0"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/npm/cli.git"
   }
 }
