@@ -26,6 +26,7 @@ describe('Basic', function() {
 
             this.test.title += (`(addend1, addend2) => (${addend1}, ${addend2})`)
             assert.equal(add(addend1, addend2), addend1+addend2)
+            assert.equal(add(addend1, addend2)-addend2, addend1)
         })
 
         it('Simple result with negative numbers: ', function() {
@@ -34,6 +35,7 @@ describe('Basic', function() {
 
             this.test.title += (`(addend1, addend2) => (${addend1}, ${addend2})`)
             assert.equal(add(addend1, addend2), addend1+addend2)
+            assert.equal(add(addend1, addend2)-addend2, addend1)
         })
 
         it('Simple result with mixed signal numbers: ', function() {
@@ -42,6 +44,7 @@ describe('Basic', function() {
 
             this.test.title += (`(addend1, addend2) => (${addend1}, ${addend2})`)
             assert.equal(add(addend1, addend2), addend1+addend2)
+            assert.equal(add(addend1, addend2)-addend2, addend1)
         })
 
         it('Commutative property: ', function() {
@@ -57,6 +60,8 @@ describe('Basic', function() {
 
             this.test.title += `(addend) => (${addend})`
             assert.equal(add(addend, 0), addend)
+            assert.equal(add(addend, 0)-addend, 0)
+
         })
 
         it('Distributive property: ', function() {
@@ -115,6 +120,8 @@ describe('Basic', function() {
 
             this.test.title += (`(minuend, subtrahend) => (${minuend}, ${subtrahend})`)
             assert.equal(sub(minuend, subtrahend), minuend-subtrahend)
+            assert.equal(sub(minuend, subtrahend)+subtrahend, minuend)
+
         })
 
         it('Simple result with negative numbers: ', function() {
@@ -123,6 +130,7 @@ describe('Basic', function() {
 
             this.test.title += (`(minuend, subtrahend) => (${minuend}, ${subtrahend})`)
             assert.equal(sub(minuend, subtrahend), minuend-subtrahend)
+            assert.equal(sub(minuend, subtrahend)+subtrahend, minuend)
         })
 
         it('Simple result with mixed signal numbers: ', function() {
@@ -131,6 +139,7 @@ describe('Basic', function() {
 
             this.test.title += (`(minuend, subtrahend) => (${minuend}, ${subtrahend})`)
             assert.equal(sub(minuend, subtrahend), minuend-subtrahend)
+            assert.equal(sub(minuend, subtrahend)+subtrahend, minuend)
         })
 
         it('Commutative property: ', function() {
@@ -146,6 +155,7 @@ describe('Basic', function() {
 
             this.test.title += `(minuend) => (${minuend})`
             assert.equal(sub(minuend, 0), minuend)
+            assert.equal(sub(minuend, 0)+minuend, minuend*2)
         })
 
         it('Distributive property: ', function() {
@@ -204,6 +214,7 @@ describe('Basic', function() {
 
             this.test.title += (`(multiplicand, multiplier) => (${multiplicand}, ${multiplier})`)
             assert.equal(multiply(multiplicand, multiplier), multiplicand*multiplier)
+            assert.equal(multiply(multiplicand, multiplier)/multiplier, multiplicand)
         })
 
         it('Simple result with negative numbers: ', function() {
@@ -212,6 +223,7 @@ describe('Basic', function() {
 
             this.test.title += (`(multiplicand, multiplier) => (${multiplicand}, ${multiplier})`)
             assert.equal(multiply(multiplicand, multiplier), multiplicand*multiplier)
+            assert.equal(multiply(multiplicand, multiplier)/multiplier, multiplicand)
         })
 
         it('Simple result with mixed signal numbers: ', function() {
@@ -220,6 +232,7 @@ describe('Basic', function() {
 
             this.test.title += (`(multiplicand, multiplier) => (${multiplicand}, ${multiplier})`)
             assert.equal(multiply(multiplicand, multiplier), multiplicand*multiplier)
+            assert.equal(multiply(multiplicand, multiplier)/multiplier, multiplicand)
         })
 
         it('Commutative property: ', function() {
@@ -235,6 +248,7 @@ describe('Basic', function() {
 
             this.test.title += `(multiplicand) => (${multiplicand})`
             assert.equal(multiply(multiplicand, 1), multiplicand)
+            assert.equal(multiply(multiplicand, 1)/multiplicand, 1)
         })
 
         it('Multiplication Identity property 2: ', function() {
@@ -242,6 +256,7 @@ describe('Basic', function() {
 
             this.test.title += `(multiplicand) => (${multiplicand})`
             assert.equal(multiply(multiplicand, 0), 0)
+            assert.equal(multiply(multiplicand, 0)/multiplicand, 0)
         })
 
         it('Distributive property: ', function() {
@@ -300,6 +315,7 @@ describe('Basic', function() {
 
             this.test.title += (`(dividend, divisor) => (${dividend}, ${divisor})`)
             assert.equal(divide(dividend, divisor), dividend/divisor)
+            assert.equal(divide(dividend, divisor)*divisor, dividend)
         })
 
         it('Simple result with negative numbers: ', function() {
@@ -308,6 +324,7 @@ describe('Basic', function() {
 
             this.test.title += (`(dividend, divisor) => (${dividend}, ${divisor})`)
             assert.equal(divide(dividend, divisor), dividend/divisor)
+            assert.equal(divide(dividend, divisor)*divisor, dividend)
         })
 
         it('Simple result with mixed signal numbers: ', function() {
@@ -316,6 +333,7 @@ describe('Basic', function() {
 
             this.test.title += (`(dividend, divisor) => (${dividend}, ${divisor})`)
             assert.equal(divide(dividend, divisor), dividend/divisor)
+            assert.equal(divide(dividend, divisor)*divisor, dividend)
         })
 
         it('Commutative property: ', function() {
@@ -331,6 +349,7 @@ describe('Basic', function() {
 
             this.test.title += `(dividend) => (${dividend})`
             assert.equal(divide(dividend, 1), dividend)
+            assert.equal(divide(dividend, 1)*dividend, dividend**2)
         })
 
         it('Identity property of division 2: ', function() {
@@ -338,6 +357,7 @@ describe('Basic', function() {
 
             this.test.title += `(dividend) => (${dividend})`
             assert.equal(divide(dividend, dividend), 1)
+            assert.equal(divide(dividend, dividend)*dividend, dividend)
         })
 
         it('Identity property of division 3: ', function() {
@@ -345,6 +365,7 @@ describe('Basic', function() {
 
             this.test.title += `(dividend) => (${dividend})`
             assert.deepStrictEqual(divide(dividend, 0), Infinity)
+            assert.deepStrictEqual(divide(dividend, 0)*dividend, Infinity)
         })
 
         it('Identity property of division 4: ', function() {
@@ -352,6 +373,7 @@ describe('Basic', function() {
 
             this.test.title += `(dividend) => (${dividend})`
             assert.equal(divide(0, dividend), 0)
+            assert.equal(divide(0, dividend)*dividend, 0)
         })
 
         /**
