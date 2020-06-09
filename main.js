@@ -1,4 +1,4 @@
-import basic from './lib/basic.js'
+import basic from './lib/basic/index.js'
 
 export {
     basic
