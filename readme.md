@@ -1,4 +1,4 @@
-# Math functional [![Build Status](https://travis-ci.org/renie/math.svg?branch=master)](https://travis-ci.org/renie/math) [![Coverage Status](https://coveralls.io/repos/github/renie/math/badge.svg?branch=master)](https://coveralls.io/github/renie/math?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/98e600d0587c506b17b6/maintainability)](https://codeclimate.com/github/renie/math/maintainability) ![Code Score](https://www.code-inspector.com/project/8396/score/svg)
+# Math functional [![Build Status](https://travis-ci.org/renie/math.svg?branch=master)](https://travis-ci.org/renie/math) [![Coverage Status](https://coveralls.io/repos/github/renie/math/badge.svg?branch=master)](https://coveralls.io/github/renie/math?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/98e600d0587c506b17b6/maintainability)](https://codeclimate.com/github/renie/math/maintainability)
 
 Just a project to abstract math functions from basic to I-don't-know-where.
 
@@ -217,6 +217,51 @@ isEven(2)
 // true
 ```
 
+### Algebra
+#### Primality
+##### getRelevantPossibleDivisors()
+
+###### Receives
+```
+getRelevantPossibleDivisors(x)
+```
+Where **x** is a number
+
+###### Returns
+An array of every relevant divisors, for prime calculation, for **x**.
+In other words, it will return an array of integers from 2 until √x
+
+###### Examples
+```
+getRelevantPossibleDivisors(9)
+// [2,3]
+```
+```
+getRelevantPossibleDivisors(8)
+// [2]
+```
+
+##### isPrime()
+
+###### Receives
+```
+isPrime(x)
+```
+Where **x** is a number
+
+###### Returns
+Boolean indicator about **x** primality
+
+###### Examples
+```
+isPrime(7)
+// true
+```
+```
+isPrime(9)
+// false
+```
+
 
 ### Utils
 ##### bulkFunction()
@@ -304,6 +349,25 @@ Return an array, with required **size**, where every content item is an any sign
 ###### Examples
 ```
 getRandomMixedArray()
+```
+
+##### generateIntegerArray()
+```
+generateIntegerArray(initialValue, finalValue)
+```
+Where **initialValue** and **finalValue** are integers. *Default value for initialValue is 0, and for finalValue is 1*.
+
+###### Returns
+Return an array of integers, beggining on **initialValue** and finishing on **finalValue**
+
+###### Examples
+```
+generateIntegerArray()
+// [0-1]
+```
+```
+generateIntegerArray(5,9)
+// [5,6,7,8,9]
 ```
 
 

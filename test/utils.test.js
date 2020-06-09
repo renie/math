@@ -8,7 +8,8 @@ import {
     getRandomNegativeNumber,
     getRandomPositiveArray,
     getRandomNegativeArray,
-    getRandomMixedArray } from '../lib/utils.js'
+    getRandomMixedArray,
+    generateIntegerArray } from '../lib/utils.js'
 
 const assert = chai.assert
 
@@ -87,5 +88,16 @@ describe('Utils', function() {
             assert.isOk(list.some(item => item < 0), `no negative ${list}`)
         })
 
+    })
+
+    describe('generateIntegerArray()', function() {
+
+        it('Generate a default array (0-1)', function() {
+            assert.deepStrictEqual(generateIntegerArray(), [0,1])
+        })
+
+        it('Generate an array from 5 to 9', function() {
+            assert.deepStrictEqual(generateIntegerArray(5,9), [5,6,7,8,9])
+        })
     })
 })
