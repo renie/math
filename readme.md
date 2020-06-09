@@ -1,4 +1,4 @@
-# Math functional [![Build Status](https://travis-ci.org/renie/math.svg?branch=master)](https://travis-ci.org/renie/math) [![Coverage Status](https://coveralls.io/repos/github/renie/math/badge.svg?branch=master)](https://coveralls.io/github/renie/math?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/98e600d0587c506b17b6/maintainability)](https://codeclimate.com/github/renie/math/maintainability) ![Code Score](https://www.code-inspector.com/project/8396/score/svg)
+# Math functional [![Build Status](https://travis-ci.org/renie/math.svg?branch=master)](https://travis-ci.org/renie/math) [![Coverage Status](https://coveralls.io/repos/github/renie/math/badge.svg?branch=master)](https://coveralls.io/github/renie/math?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/98e600d0587c506b17b6/maintainability)](https://codeclimate.com/github/renie/math/maintainability)
 
 Just a project to abstract math functions from basic to I-don't-know-where.
 

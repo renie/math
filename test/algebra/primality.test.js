@@ -36,11 +36,11 @@ describe('Algebra', function() {
         describe('isPrime()', function() {
 
             it('Return whether a number is prime', function() {
-                assert.ok(13)
+                assert.ok(primality.isPrime(13))
             })
 
             it('Return whether a number is not prime', function() {
-                assert.ok(15)
+                assert.ok(!primality.isPrime(15))
             })
         })
     })
