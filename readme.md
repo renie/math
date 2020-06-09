@@ -306,6 +306,25 @@ Return an array, with required **size**, where every content item is an any sign
 getRandomMixedArray()
 ```
 
+##### generateIntegerArray()
+```
+generateIntegerArray(initialValue, finalValue)
+```
+Where **initialValue** and **finalValue** are integers. *Default value for initialValue is 0, and for finalValue is 1*.
+
+###### Returns
+Return an array of integers, beggining on **initialValue** and finishing on **finalValue**
+
+###### Examples
+```
+generateIntegerArray()
+// [0-1]
+```
+```
+generateIntegerArray(5,9)
+// [5,6,7,8,9]
+```
+
 
 ## Test
 ```
