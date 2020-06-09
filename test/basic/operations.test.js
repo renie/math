@@ -147,7 +147,10 @@ describe('Basic', function() {
 
             it('Commutative property: ', function() {
                 const minuend = getRandomPositiveNumber(100)
-                const subtrahend = getRandomPositiveNumber(100)
+                let subtrahend = getRandomPositiveNumber(100)
+                
+                while (subtrahend === minuend)
+                    subtrahend = getRandomPositiveNumber(100)
 
                 this.test.title += (`(minuend, subtrahend) => (${minuend}, ${subtrahend})`)
                 assert.notEqual(operations.sub(minuend, subtrahend), operations.sub(subtrahend, minuend))
