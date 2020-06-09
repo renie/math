@@ -217,6 +217,30 @@ isEven(2)
 // true
 ```
 
+### Algebra
+#### Primality
+##### getRelevantPossibleDivisors()
+
+###### Receives
+```
+getRelevantPossibleDivisors(x)
+```
+Where **x** is a number
+
+###### Returns
+An array of every relevant divisors, for prime calculation, for **x**.
+In other words, it will return an array of integers from 2 until √x
+
+###### Examples
+```
+getRelevantPossibleDivisors(9)
+// [2,3]
+```
+```
+getRelevantPossibleDivisors(8)
+// [2]
+```
+
 
 ### Utils
 ##### bulkFunction()
